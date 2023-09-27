@@ -21,13 +21,15 @@ class _BreakingNewsScreenState extends State<BreakingNewsScreen> {
   late List<ArticlesData> newsArticleList = [];
   bool _getNewsInProgress = false;
 
+  int p = 1;
+
   Future<void> getBreakingNews() async {
     _getNewsInProgress = true;
     if (mounted) {
       setState(() {});
     }
     final NetworkResponse response =
-        await NetworkCaller().getRequest(Urls.breakingNewsUrl);
+        await NetworkCaller().getRequest(Urls.breakingNewsUrl(p.toString()));
 
     _getNewsInProgress = false;
     if (mounted) {

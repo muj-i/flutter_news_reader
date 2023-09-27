@@ -17,10 +17,10 @@ class AllNewsScreen extends StatefulWidget {
 class _AllNewsScreenState extends State<AllNewsScreen> {
   NewsArticleModel newsArticleModel = NewsArticleModel();
   late List<ArticlesData> newsArticleList = [];
-
+  int p = 1;
   Future<void> getNews() async {
     final NetworkResponse response =
-        await NetworkCaller().getRequest(Urls.allNewsApiUrl);
+        await NetworkCaller().getRequest(Urls.allNewsApiUrl(p.toString()));
     if (response.isSuccess) {
       newsArticleModel = NewsArticleModel.fromJson(response.body ?? {});
       newsArticleList = newsArticleModel.articles!;
