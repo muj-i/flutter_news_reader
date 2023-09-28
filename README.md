@@ -11,7 +11,7 @@ A simple News app using [News API](https://newsapi.org).
 - Offline News 
 - Search News
 
-## News Glide UI
+## News Read UI
 
 <div style="display: flex; flex-wrap: wrap;">
     <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss1.png" width="250" />
