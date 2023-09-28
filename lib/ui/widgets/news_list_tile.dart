@@ -1,7 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/data/models/news_article_model.dart';
 import 'package:flutter_news_reader/ui/screens/news_details_screen.dart';
+import 'package:flutter_news_reader/ui/utils/place_holder.dart';
+import 'package:flutter_news_reader/ui/widgets/custom_cached_network_image.dart';
 
 class NewsListTile extends StatefulWidget {
   final ArticlesData articlesData;
@@ -37,16 +38,11 @@ class _NewsListTileState extends State<NewsListTile> {
         child: ListTile(
           subtitle: Column(
             children: [
-              CachedNetworkImage(
-                height: 250,
-                width: double.infinity,
-                fit: BoxFit.fitWidth,
-                imageUrl: widget.articlesData.urlToImage.toString(),
-                placeholder: (context, url) => const Center(
-                  child: CircularProgressIndicator(),
-                ),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
-              ),
+              CustomCachedNetworkImage(
+                  url: (widget.articlesData.urlToImage?.toString() ?? '')
+                          .isNotEmpty
+                      ? widget.articlesData.urlToImage.toString()
+                      : PlaceHolderImage().placeHolderImage),
               const SizedBox(
                 width: 8,
               ),

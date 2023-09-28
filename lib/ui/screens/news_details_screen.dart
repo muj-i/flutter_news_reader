@@ -1,6 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/data/models/news_article_model.dart';
+import 'package:flutter_news_reader/ui/utils/place_holder.dart';
+import 'package:flutter_news_reader/ui/widgets/custom_cached_network_image.dart';
 
 class NewsDetailsScreen extends StatefulWidget {
   final ArticlesData articlesData;
@@ -21,17 +23,13 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CachedNetworkImage(
-                height: 250,
-                width: double.infinity,
-                fit: BoxFit.fitWidth,
-                imageUrl: widget.articlesData.urlToImage.toString(),
-                placeholder: (context, url) => const Center(
-                  child: CircularProgressIndicator(),
-                ),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
-              ),
+              CustomCachedNetworkImage(
+                  url: (widget.articlesData.urlToImage?.toString() ?? '')
+                          .isNotEmpty
+                      ? widget.articlesData.urlToImage.toString()
+                      : PlaceHolderImage().placeHolderImage),
               Row(
                 children: [
                   const Spacer(),
@@ -54,11 +52,11 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
                 height: 10,
               ),
               Text(
-                  'Article Description: ${widget.articlesData.description ?? ''}'),
+                  widget.articlesData.description ?? ''),
               const SizedBox(
                 height: 8,
               ),
-              Text('Article Content: ${widget.articlesData.content ?? ''}'), const SizedBox(
+              Text(widget.articlesData.content ?? ''), const SizedBox(
                 height: 8,
               ),
                Text(

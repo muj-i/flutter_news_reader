@@ -13,7 +13,8 @@ class ShimmerListItem extends StatelessWidget {
         title: Column(
           children: [
             Container(
-              height: 200.0,
+              height: 180.0,
+              
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(6),
                 color: Colors.white,
@@ -28,16 +29,7 @@ class ShimmerListItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 color: Colors.white,
               ),
-            ),const SizedBox(
-              height: 5,
-            ),
-            Container(
-              height: 22.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6),
-                color: Colors.white,
-              ),
-            ),
+            )
           ],
         ),
       ),
