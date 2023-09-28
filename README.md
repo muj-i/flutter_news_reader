@@ -34,13 +34,13 @@ Follow these steps to run the News Read Application:
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/muj-i/flutter_news_read.git
+git clone https://github.com/muj-i/flutter_news_reader.git
 ```
 
 2. Navigate to the project folder:
 
 ```bash
-cd flutter_news_read
+cd flutter_news_reader
 ```
 
 3. Install dependencies:
