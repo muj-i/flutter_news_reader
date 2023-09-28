@@ -12,16 +12,14 @@ A simple News app using [News API](https://newsapi.org).
 - Search News
 
 ## News Read UI
-<!--
-<div style="display: flex; flex-wrap: wrap;">
+<!--<div style="display: flex; flex-wrap: wrap;">
     <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss1.png" width="250" />
     <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss2.png" width="250" />
     <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss3.png" width="250" />
     <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss4.png" width="250" />
     <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss5.png" width="250" />
     
-</div>
---/>
+</div>--/>
 ## Getting Started
 
 ### Prerequisites
@@ -60,15 +58,10 @@ flutter run
 ## Used Packages
 
 News Read integrates the following packages to enhance functionality:
-
-- `google_fonts: ^5.1.0`: Access Google Fonts for typography options.
+- `http: ^1.1.0`: Perform HTTP requests and interact with APIs.
+- `shimmer: ^3.0.0`: Shimmer effect when loading news in progress.
 - `flutter_iconly: ^1.0.2`: Access a wide range of Font Awesome icons for stylish visuals.
 - `flutter_launcher_icons: ^0.13.1`: Simplify the generation of launcher icons on various platforms.
-
-http:
-  
-  
-  shimmer: ^3.0.0
   
 ## Project Directory Structure
 
