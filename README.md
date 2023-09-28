@@ -60,14 +60,16 @@ flutter run
 ## Used Packages
 
 News Read integrates the following packages to enhance functionality:
-- `firebase_core: ^2.15.0`: Firebase Core for Firebase integration.
-- `firebase_auth: ^4.7.1`: Firebase Authentication for user authentication.
-- `google_fonts: ^5.1.0`: Access Google Fonts for typography options.
-- `font_awesome_flutter: ^10.5.0`: Access a wide range of Font Awesome icons for stylish visuals.
-- `firebase_database: ^10.2.4`: Firebase Realtime Database for real-time data storage.
-- `flutter_launcher_icons: ^0.13.1`: Simplify the generation of launcher icons on various platforms.
-- `firebase_crashlytics: ^3.3.5`: Firebase Crashlytics for crash reporting and analysis.
 
+- `google_fonts: ^5.1.0`: Access Google Fonts for typography options.
+- `flutter_iconly: ^1.0.2`: Access a wide range of Font Awesome icons for stylish visuals.
+- `flutter_launcher_icons: ^0.13.1`: Simplify the generation of launcher icons on various platforms.
+
+http:
+  
+  
+  shimmer: ^3.0.0
+  
 ## Project Directory Structure
 
 The News Read directory structure is organized as follows:
