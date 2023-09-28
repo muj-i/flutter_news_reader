@@ -7,9 +7,10 @@ A simple News app using [News API](https://newsapi.org).
 
 ## Responsibilities
 
-- Breaking News & All News 
-- Offline News 
-- Search News
+- Read breaking news and all news accross the globe from a variety of sources
+- Save news for offline reading
+- Search news by keyword or topic
+- Simple and user-friendly interface
 
 ## News Read UI
 <!--<div style="display: flex; flex-wrap: wrap;">
@@ -19,7 +20,7 @@ A simple News app using [News API](https://newsapi.org).
     <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss4.png" width="250" />
     <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss5.png" width="250" />
     
-</div>--/>
+</div>-->
 ## Getting Started
 
 ### Prerequisites
@@ -94,14 +95,14 @@ The News Read directory structure is organized as follows:
   │   ├── firebase_options.dart
   │   ├── main.dart
 ```
---/>
+-->
 ## Contributors
 
 - [Mujahedul Islam](https://github.com/muj-i)
 
 ## Special Thanks
 
-A heartfelt thanks to [Moniruzzaman](https://github.com/moniruzzaman76) & [Md Alhaz Mondal Hredhay](https://github.com/hredhayxz) to share their knowledges with me & help me complete this project.
+A heartfelt thanks to [Moniruzzaman](https://github.com/moniruzzaman76) & [Md Alhaz Mondal Hredhay](https://github.com/hredhayxz) to share their knowledges with me & help me complete the project.
 
 ## License
 
