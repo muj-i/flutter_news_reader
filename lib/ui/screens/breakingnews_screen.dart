@@ -7,6 +7,7 @@ import 'package:flutter_news_reader/data/services/network_caller.dart';
 import 'package:flutter_news_reader/data/utils/utls.dart';
 import 'package:flutter_news_reader/ui/widgets/custom_snackbar.dart';
 import 'package:flutter_news_reader/ui/widgets/news_list_tile.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class BreakingNewsScreen extends StatefulWidget {
   const BreakingNewsScreen({super.key});
@@ -21,8 +22,8 @@ class _BreakingNewsScreenState extends State<BreakingNewsScreen> {
   bool _getNewsInProgress = false;
 
   final _scrollController = ScrollController();
-  int page = 20;
-
+  int page = 30;
+  final _newsBox = Hive.box('newsBox');
   @override
   void initState() {
     _scrollController.addListener(_scrollListener);
@@ -52,22 +53,30 @@ class _BreakingNewsScreenState extends State<BreakingNewsScreen> {
               return NewsListTile(
                 articlesData: newsArticleList[index],
               );
-              // } else {
-              //   SizedBox(
-              //     width: 200.0,
-              //     height: 100.0,
-              //     child: ListView.builder(
-              //       itemCount: 1, // Number of shimmer items
-              //       itemBuilder: (context, index) {
-              //         return const ShimmerListItem();
-              //       },
-              //     ),
-              //   );
-              // }
-              // return null;
             },
           ),
         ),
+      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              cachedNews();
+            },
+            child: const Text('Write'),
+          ),
+          FloatingActionButton(
+              onPressed: () {
+                readCachedNews();
+              },
+              child: const Text('Read')),
+          FloatingActionButton(
+              onPressed: () {
+               deleteCachedDelete();
+              },
+              child: const Text('Delete')),
+        ],
       ),
     );
   }
@@ -105,11 +114,31 @@ class _BreakingNewsScreenState extends State<BreakingNewsScreen> {
         _scrollController.position.maxScrollExtent) {
       log('Call Api, Scroll count listener');
 
-      page = page + 20;
+      page = page + 30;
       getBreakingNews();
     } else {
       log('Don\'t call Api');
     }
     //log('Scroll count listener');
+  }
+
+  void cachedNews() {
+    _newsBox.put('Data', ['pox', 'news',26]);
+    _newsBox.put(2, '888888888888');
+    _newsBox.put(3, ']]]]]]]]]]]]]]');
+    _newsBox.put(4, '===================');
+  }
+
+  void readCachedNews() {
+    print(_newsBox.get('Data'));
+  
+
+    print(_newsBox.get(2));
+    print(_newsBox.get(3));
+    print(_newsBox.get(4));
+  }
+
+  void deleteCachedDelete() {
+    _newsBox.delete(2);
   }
 }
