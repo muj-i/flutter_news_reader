@@ -5,7 +5,7 @@ import 'package:flutter_news_reader/data/models/network_response.dart';
 import 'package:flutter_news_reader/data/models/news_article_model.dart';
 import 'package:flutter_news_reader/data/services/network_caller.dart';
 import 'package:flutter_news_reader/data/utils/utls.dart';
-import 'package:flutter_news_reader/ui/widgets/news_list_tile.dart';
+import 'package:flutter_news_reader/presentation/ui/widgets/news_list_tile.dart';
 
 class AllNewsScreen extends StatefulWidget {
   const AllNewsScreen({super.key});

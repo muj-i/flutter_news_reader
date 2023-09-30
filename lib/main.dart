@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/app.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() async {
- await Hive.initFlutter();
+  //await Hive.initFlutter();
 
-var box = await Hive.openBox('newsBox');
+//var box = await Hive.openBox('newsBox');
 
-  runApp(const FlutterNewsReaderApp());
+  runApp(const ProviderScope(child: FlutterNewsReaderApp()));
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:flutter_news_reader/ui/screens/appbar_tabbar_screen.dart';
-import 'package:flutter_news_reader/ui/screens/offline_news_screen.dart';
+import 'package:flutter_news_reader/presentation/ui/screens/appbar_tabbar_screen.dart';
+import 'package:flutter_news_reader/presentation/ui/screens/offline_news_screen.dart';
 
 class BottomNavBaseScreen extends StatefulWidget {
   const BottomNavBaseScreen({super.key});

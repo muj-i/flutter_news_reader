@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/data/models/news_article_model.dart';
-import 'package:flutter_news_reader/ui/utils/place_holder.dart';
-import 'package:flutter_news_reader/ui/widgets/custom_cached_network_image.dart';
+import 'package:flutter_news_reader/presentation/ui/utils/place_holder.dart';
+import 'package:flutter_news_reader/presentation/ui/widgets/custom_cached_network_image.dart';
 
 class NewsDetailsScreen extends StatefulWidget {
   final ArticlesData articlesData;
