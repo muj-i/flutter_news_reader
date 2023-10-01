@@ -1,62 +1,99 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_news_reader/data/models/network_response.dart';
 import 'package:flutter_news_reader/data/models/news_article_model.dart';
-import 'package:flutter_news_reader/data/services/network_caller.dart';
-import 'package:flutter_news_reader/data/utils/utls.dart';
+import 'package:flutter_news_reader/presentation/state_holder/data_provider.dart';
 import 'package:flutter_news_reader/presentation/ui/widgets/news_list_tile.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AllNewsScreen extends StatefulWidget {
-  const AllNewsScreen({super.key});
+class AllNewsScreen extends ConsumerWidget {
+  AllNewsScreen({super.key});
 
+  final _scrollController = ScrollController();
+
+  //final _newsBox = Hive.box('newsBox');
+
+  // @override
   @override
-  State<AllNewsScreen> createState() => _AllNewsScreenState();
-}
-
-class _AllNewsScreenState extends State<AllNewsScreen> {
-  NewsArticleModel newsArticleModel = NewsArticleModel();
-  late List<ArticlesData> newsArticleList = [];
-  int p = 1;
-  Future<void> getNews() async {
-    final NetworkResponse response =
-        await NetworkCaller().getRequest(Urls.allNewsApiUrl(p.toString()));
-    if (response.isSuccess) {
-      newsArticleModel = NewsArticleModel.fromJson(response.body ?? {});
-      newsArticleList = newsArticleModel.articles!;
-      log(newsArticleList.length.toString());
-    } else {
-      log('x');
-    }
-    setState(() {});
-  }
-
-  @override
-  void initState() {
-    getNews();
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+    final newsData = ref.watch(allnewsDataProvider);
     return Scaffold(
-      
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SizedBox(
-          height: double.infinity,
-          width: double.infinity,
-          child: ListView.builder(
-            itemCount: newsArticleList.length,
-            itemBuilder: (context, index) {
-              return NewsListTile(
-                articlesData: newsArticleList[index],
-                // title: Text(newsArticleList[index].title.toString()),
+        body: newsData.when(
+            data: (newsData) {
+             // List<ArticlesData> newsArticleList = newsData;
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: double.infinity,
+                  width: double.infinity,
+                  child: ListView.builder(
+                    controller: _scrollController,
+                    itemCount:
+                        newsData.length,
+                    itemBuilder: (context, index) {
+                      // if (index < newsArticleList.length) {
+                      return NewsListTile(
+                articlesData: newsData[index],
+              ); 
+                    },
+                  ),
+                ),
               );
             },
-          ),
-        ),
-      ),
-    );
+            error: (err, s) => Text(err.toString()),
+            loading: () => const Center(child: CircularProgressIndicator()))
+        // floatingActionButton: Column(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     FloatingActionButton(
+        //       onPressed: () {
+        //         cachedNews();
+        //       },
+        //       child: const Text('Write'),
+        //     ),
+        //     FloatingActionButton(
+        //         onPressed: () {
+        //           readCachedNews();
+        //         },
+        //         child: const Text('Read')),
+        //     FloatingActionButton(
+        //         onPressed: () {
+        //           deleteCachedDelete();
+        //         },
+        //         child: const Text('Delete')),
+        //   ],
+        // ),
+        );
   }
+
+  // void _scrollListener() {
+  //   if (_getNewsInProgress) return;
+  //   if (_scrollController.position.pixels ==
+  //       _scrollController.position.maxScrollExtent) {
+  //     log('Call Api, Scroll count listener');
+
+  //     page = page + 30;
+  //     getBreakingNews();
+  //   } else {
+  //     log('Don\'t call Api');
+  //   }
+  //   //log('Scroll count listener');
+  // }
+
+  // void cachedNews() {
+  //   _newsBox.put('Data', ['Mate', 'Exam', 26]);
+  //   _newsBox.put(2, '888888888888');
+  //   _newsBox.put(3, ']]]]]]]]]]]]]]');
+  //   _newsBox.put(4, '===================');
+  // }
+
+  // void readCachedNews() {
+  //   print(_newsBox.get('Data'));
+
+  //   print(_newsBox.get(2));
+  //   print(_newsBox.get(3));
+  //   print(_newsBox.get(4));
+  // }
+
+  // void deleteCachedDelete() {
+  //   _newsBox.delete(2);
+  // }
 }

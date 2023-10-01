@@ -1,31 +1,4 @@
-class NewsArticleModel {
-  String? status;
-  int? totalResults;
-  List<ArticlesData>? articles;
 
-  NewsArticleModel({this.status, this.totalResults, this.articles});
-
-  NewsArticleModel.fromJson(Map<String, dynamic> json) {
-    status = json['status'];
-    totalResults = json['totalResults'];
-    if (json['articles'] != null) {
-      articles = <ArticlesData>[];
-      json['articles'].forEach((v) {
-        articles!.add(ArticlesData.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['status'] = status;
-    data['totalResults'] = totalResults;
-    if (articles != null) {
-      data['articles'] = articles!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
 
 class ArticlesData {
   Source? source;

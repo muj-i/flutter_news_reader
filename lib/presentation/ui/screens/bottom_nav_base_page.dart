@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:flutter_news_reader/presentation/ui/screens/appbar_tabbar_screen.dart';
+import 'package:flutter_news_reader/presentation/ui/screens/nnn.dart';
 import 'package:flutter_news_reader/presentation/ui/screens/offline_news_screen.dart';
 
 class BottomNavBaseScreen extends StatefulWidget {
@@ -11,10 +12,11 @@ class BottomNavBaseScreen extends StatefulWidget {
 }
 
 class _BottomNavBaseScreenState extends State<BottomNavBaseScreen> {
-  int _selectedScreenIndex = 0;
+  int _selectedScreenIndex = 1;
   final List<Widget> _screens = const [
     AppBarTabBArScreen(),
-    OfflineNewsScreen(),
+YourWidget()
+    //OfflineNewsScreen(),
   ];
 
   @override
