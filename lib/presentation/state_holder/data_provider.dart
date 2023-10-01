@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final breakingnewsDataProvider =
     FutureProvider<List<ArticlesData>>((ref) async {
-  return ref.watch(apiServiceProvider).getBreakingNews(Urls.breakingNewsUrl);
+  return ref.watch(apiServiceProvider).getBreakingNews(Urls.breakingNewsUrl, 'breaking');
 });
 final allnewsDataProvider = FutureProvider<List<ArticlesData>>((ref) async {
-  return ref.watch(apiServiceProvider).getBreakingNews(Urls.allNewsApiUrl);
+  return ref.watch(apiServiceProvider).getBreakingNews(Urls.allNewsApiUrl, 'all');
 });

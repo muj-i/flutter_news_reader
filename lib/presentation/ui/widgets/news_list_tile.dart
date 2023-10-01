@@ -38,11 +38,11 @@ class _NewsListTileState extends State<NewsListTile> {
         child: ListTile(
           subtitle: Column(
             children: [
-              CustomCachedNetworkImage(
-                  url: (widget.articlesData.urlToImage?.toString() ?? '')
-                          .isNotEmpty
-                      ? widget.articlesData.urlToImage.toString()
-                      : PlaceHolderImage().placeHolderImage),
+              // CustomCachedNetworkImage(
+              //     url: (widget.articlesData.urlToImage?.toString() ?? '')
+              //             .isNotEmpty
+              //         ? widget.articlesData.urlToImage.toString()
+              //         : PlaceHolderImage().placeHolderImage),
               const SizedBox(
                 width: 8,
               ),

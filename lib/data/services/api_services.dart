@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter_news_reader/data/models/news_article_model.dart';
-import 'package:flutter_news_reader/data/utils/local_data.dart';
+import 'package:flutter_news_reader/data/utils/local_data_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart';
 
 class ApiService {
-  Future<List<ArticlesData>> getBreakingNews(String url) async {
+  Future<List<ArticlesData>> getBreakingNews(String url, String remark) async {
     Response response = await get(Uri.parse(url));
 
     if (response.statusCode == 200) {
@@ -17,9 +17,11 @@ class ApiService {
       // Convert the JSON response into a list of ArticlesData
       final List<ArticlesData> articlesDataList = newsArticleModel.map((e) => ArticlesData.fromJson(e)).toList();
       
-      // Save the list of ArticlesData
+if (remark == 'breaking'){
       LocalDataStorage.saveArticlesData(articlesDataList);
-
+} else {
+AllNewsLocalDataStorage.saveArticlesData(articlesDataList);
+}
       log(response.statusCode.toString());
       //log(response.body);
       return articlesDataList;

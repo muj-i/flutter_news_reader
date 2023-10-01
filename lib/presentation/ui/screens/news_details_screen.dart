@@ -25,11 +25,11 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomCachedNetworkImage(
-                  url: (widget.articlesData.urlToImage?.toString() ?? '')
-                          .isNotEmpty
-                      ? widget.articlesData.urlToImage.toString()
-                      : PlaceHolderImage().placeHolderImage),
+              // CustomCachedNetworkImage(
+              //     url: (widget.articlesData.urlToImage?.toString() ?? '')
+              //             .isNotEmpty
+              //         ? widget.articlesData.urlToImage.toString()
+              //         : PlaceHolderImage().placeHolderImage),
               Row(
                 children: [
                   const Spacer(),

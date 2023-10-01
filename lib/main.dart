@@ -12,14 +12,12 @@ void main() async {
 
   await Hive.initFlutter();
 
-//var box = await Hive.openBox('newsBox');
-
   runApp(const ProviderScope(child: FlutterNewsReaderApp()));
 }
 
 class ArticlesDataAdapter extends TypeAdapter<ArticlesData> {
   @override
-  final typeId = 0; // Unique identifier for the adapter
+  final typeId = 0;
 
   @override
   ArticlesData read(BinaryReader reader) {

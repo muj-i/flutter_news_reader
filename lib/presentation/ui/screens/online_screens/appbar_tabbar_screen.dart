@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_reader/presentation/ui/screens/allnews_screen.dart';
-import 'package:flutter_news_reader/presentation/ui/screens/breakingnews_screen.dart';
+import 'package:flutter_news_reader/presentation/ui/screens/online_screens/allnews_screen.dart';
+import 'package:flutter_news_reader/presentation/ui/screens/online_screens/breakingnews_screen.dart';
 
 class AppBarTabBArScreen extends StatefulWidget {
   const AppBarTabBArScreen({Key? key}) : super(key: key);
@@ -29,9 +29,9 @@ class _AppBarTabBArScreenState extends State<AppBarTabBArScreen> {
             ],
           ),
         ),
-        body:  TabBarView(
+        body: TabBarView(
           children: [
-            BreakingNewsScreen(),
+            const BreakingNewsScreen(),
             AllNewsScreen(),
           ],
         ),
