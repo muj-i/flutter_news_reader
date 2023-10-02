@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_reader/presentation/ui/screens/offline_screens/offline_allnews_screen.dart';
-import 'package:flutter_news_reader/presentation/ui/screens/offline_screens/offline_breakingnews_screen.dart';
+import 'package:flutter_news_reader/view/screens/offline_screens/offline_allnews_screen.dart';
+import 'package:flutter_news_reader/view/screens/offline_screens/offline_breakingnews_screen.dart';
 
 class OfflineAppBarTabBArScreen extends StatefulWidget {
   const OfflineAppBarTabBArScreen({Key? key}) : super(key: key);

@@ -1,4 +1,3 @@
-
 # News Read
 
 ## Description 
@@ -7,20 +6,50 @@ A simple News app using [News API](https://newsapi.org).
 
 ## Responsibilities
 
-- Read breaking news and all news accross the globe from a variety of sources
+- Read breaking news and all news from a variety of sources
 - Save news for offline reading
-- Search news by keyword or topic
 - Simple and user-friendly interface
 
+## Design Decisions:
+
+- **Bottom Navigation:** The app utilizes a bottom navigation bar with two tabs - "Home" and "Offline." It allows users to switch between online and offline content easily.
+
+- **AppBar TabBar:** The "Home" & the "Offline" screnns features an AppBar with a TabBar that contains two tabs - "Breaking News" and "All News." This design decision was made to provide users with quick access to both categories of news articles.
+
+- **Connectivity Check:** The app checks for internet connectivity using the connectivity_plus package. If the user is online, they can access the "Breaking News" and "All News" tabs. If offline, they can access the "Offline" screen & they can access the cached "Breaking News" and "All News".
+
+## Challenges Faced:
+
+- **Efficient API Calls with State Management:** One of the primary challenges was to manage API calls efficiently while maintaining a responsive and smooth user experience. To address this challenge, Riverpod, a state management library, was used to handle the state of the app's data. It ensured that API calls were made only when necessary, reducing unnecessary network requests and improving app performance.
+
+- **Data Caching with Hive:** Caching data to local storage is essential for providing an offline experience and reducing network usage. Implementing data caching with Hive posed its own set of challenges, such as ensuring data consistency and handling updates. Hive is a lightweight and efficient NoSQL database, but managing data updates and syncing them with remote data can be complex.
+
+## How Challenges Were Overcome:
+
+- **Efficient API Calls with Riverpod:** Riverpod provided a structured and efficient way to manage app state and data. By creating providers for data sources and using `flutter_riverpod`, API calls were made only when the data was needed or when the user explicitly requested it. This approach reduced the number of unnecessary API calls and improved the app's responsiveness.
+
+-**Data Caching with Hive:** To overcome the challenges of data caching with `hive_flutter`, a robust caching strategy was implemented. When new data was fetched from the API, it was stored in the Hive box. To ensure data consistency, updates were synchronized with the remote data source. When the app was offline, it retrieved data from the local Hive storage, providing users with access to cached content and minimizing network usage.
+
+
+
 ## News Read UI
-<!--<div style="display: flex; flex-wrap: wrap;">
-    <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss1.png" width="250" />
-    <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss2.png" width="250" />
-    <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss3.png" width="250" />
-    <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss4.png" width="250" />
-    <img src="https://github.com/muj-i/square_ghost/blob/main/screenshots/ss5.png" width="250" />
-    
-</div>-->
+
+### Online Screen
+<div style="display: flex; flex-wrap: wrap;">
+    <img src="https://github.com/muj-i/flutter_news_reader/blob/main/screenshots/ss1.png" width="250" />
+    <img src="https://github.com/muj-i/flutter_news_reader/blob/main/screenshots/ss2.png" width="250" />
+    <img src="https://github.com/muj-i/flutter_news_reader/blob/main/screenshots/ss3.png" width="250" />
+    <img src="https://github.com/muj-i/flutter_news_reader/blob/main/screenshots/ss4.png" width="250" />
+</div>
+
+### Offline Screen
+<div style="display: flex; flex-wrap: wrap;">
+    <img src="https://github.com/muj-i/flutter_news_reader/blob/main/screenshots/ss5.png" width="250" />
+    <img src="https://github.com/muj-i/flutter_news_reader/blob/main/screenshots/ss6.png" width="250" />
+    <img src="https://github.com/muj-i/flutter_news_reader/blob/main/screenshots/ss7.png" width="250" />
+    <img src="https://github.com/muj-i/flutter_news_reader/blob/main/screenshots/ss8.png" width="250" />
+</div>
+
 ## Getting Started
 
 ### Prerequisites
@@ -59,43 +88,67 @@ flutter run
 ## Used Packages
 
 News Read integrates the following packages to enhance functionality:
-- `http: ^1.1.0`: Perform HTTP requests and interact with APIs.
-- `shimmer: ^3.0.0`: Shimmer effect when loading news in progress.
-- `flutter_iconly: ^1.0.2`: Access a wide range of Font Awesome icons for stylish visuals.
-- `flutter_launcher_icons: ^0.13.1`: Simplify the generation of launcher icons on various platforms.
+- `http: ^1.1.0:` Allows you to perform HTTP requests and interact with APIs.
+- `shimmer: ^3.0.0:` Provides a shimmer effect for your UI to indicate loading or progress.
+- `flutter_iconly: ^1.0.2:` Gives you access to a wide range of Font Awesome icons for stylish visuals in your app.
+- `flutter_launcher_icons:` ^0.13.1: Simplifies the generation of launcher icons on various platforms, making it easier to customize your app's icons.
+- `flutter_riverpod: ^2.4.1:` A Flutter state management library that is easy to use and provides a robust solution for managing your app's state.
+- `connectivity_plus: ^4.0.2:` Helps you monitor and access network connectivity information in your Flutter app.
+- `hive: ^2.2.3:` A lightweight, fast, and efficient NoSQL database for Flutter.
+- `hive_flutter: ^1.1.0`: Integrates Hive with Flutter, allowing you to use Hive seamlessly in your Flutter app.
+- `hive_generator:` ^2.0.1: A code generator for Hive, making it easier to work with Hive in your Flutter project.
+- `build_runner:` ^2.4.6: A tool that helps you generate code, including serialization and more, in your Flutter app during the build process.
   
 ## Project Directory Structure
 
 The News Read directory structure is organized as follows:
-<!--
 
 ```
-  progress_pal/
-  ├── assets/
-  │   ├── logo/
-  │   │   ├── logo_name.png
-  │   │   ├── logo.png
-  │   │   ├── logo2.png
-  ├── lib/
-  │   ├── pages/
-  │   │   ├── auth_pages/
-  │   │   │   ├── forgot_password_page.dart
-  │   │   │   ├── logedin_checking_page.dart
-  │   │   │   ├── login_page.dart
-  │   │   │   ├── signup_page.dart
-  │   │   ├── home_page.dart
-  │   │   ├── update_user_data_page.dart
-  │   ├── reusable_widgets/
-  │   │   ├── all_over_button.dart
-  │   │   ├── constants.dart
-  │   │   ├── delete_account.dart
-  │   │   ├── gender_selection.dart
-  │   │   ├── log_in_sign_up_button.dart
-  │   │   ├── selected_gender.dart
-  │   ├── firebase_options.dart
-  │   ├── main.dart
+  flutter_news_reader/
+  ├─ assets/
+  │  ├─ images/
+  │  │  ├─ internet_available.png
+  │  │  ├─ no_internet_image.png
+  │  │  ├─ offline_placeholder_image.png
+  │  ├─ logo/
+  │  │  ├─ logo.png
+  ├──lib/
+  │   ├── data/
+  │   │   ├── models/
+  │   │   │   └── news_article_model.dart
+  │   │   ├── services/
+  │   │   │   └── api_service.dart
+  │   │   └── utils/
+  │   │       ├── allnews_local_data_storage.dart
+  │   │       ├── breakingnews_local_data_storage.dart
+  │   │       ├── hive_data_adapter.dart
+  │   │       └── utls.dart
+  │   ├── state_holder/
+  │   │   └── data_provider.dart
+  │   ├── view/
+  │   │   ├── screens/
+  │   │   │   ├── offline_screens/
+  │   │   │   │   ├── offline_allnews_screen.dart
+  │   │   │   │   ├── offline_appbar_tabbar_screen.dart
+  │   │   │   │   └── offline_breakingnews_screen.dart
+  │   │   │   ├── online_screens/
+  │   │   │   │   ├── allnews_screen.dart
+  │   │   │   │   ├── appbar_tabbar_screen.dart
+  │   │   │   │   └── breakingnews_screen.dart
+  │   │   │   ├── bottom_nav_base_page.dart
+  │   │   │   ├── internet_available_screen.dart
+  │   │   │   ├── news_details_screen.dart
+  │   │   │   └── no_internet_screen.dart
+  │   │   ├── utils/
+  │   │   │   └── place_holder.dart
+  │   │   └── widgets/
+  │   │       ├── custom_cached_network_image.dart
+  │   │       ├── news_list_tile.dart
+  │   │       └── shimmer_list_item.dart
+  │   ├── app.dart
+  └── └── main.dart
 ```
--->
+
 ## Contributors
 
 - [Mujahedul Islam](https://github.com/muj-i)

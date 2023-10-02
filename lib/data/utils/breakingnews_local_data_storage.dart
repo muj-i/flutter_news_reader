@@ -20,15 +20,10 @@ class BreakingNewsLocalDataStorage {
     await _dataBox?.clear();
     await _dataBox?.addAll(articlesData);
     log(articlesData.length.toString());
-    //log(articlesData.toString());
   }
 
   static Future<List<ArticlesData>> getArticlesFromDatabase() async {
     final box = await Hive.openBox<ArticlesData>('articlesDataBox');
     return box.values.toList();
   }
-
-  // static Future<void> clearArticlesData() async {
-  //   await _dataBox?.clear();
-  // }
 }

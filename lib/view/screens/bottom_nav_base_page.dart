@@ -1,9 +1,10 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:flutter_news_reader/presentation/ui/screens/no_internet_screen.dart';
-import 'package:flutter_news_reader/presentation/ui/screens/offline_screens/offline_appbar_tabbar_screen.dart';
-import 'package:flutter_news_reader/presentation/ui/screens/online_screens/appbar_tabbar_screen.dart';
+import 'package:flutter_news_reader/view/screens/internet_available_screen.dart';
+import 'package:flutter_news_reader/view/screens/no_internet_screen.dart';
+import 'package:flutter_news_reader/view/screens/offline_screens/offline_appbar_tabbar_screen.dart';
+import 'package:flutter_news_reader/view/screens/online_screens/appbar_tabbar_screen.dart';
 
 class BottomNavBaseScreen extends StatefulWidget {
   const BottomNavBaseScreen({super.key});
@@ -25,12 +26,6 @@ class _BottomNavBaseScreenState extends State<BottomNavBaseScreen> {
     _checkInternetConnectivity();
   }
 
-  // Future<bool> _checkInternetConnectivity() async {
-  //   final connectivityResult = await (Connectivity().checkConnectivity());
-    
-  //   return ;
-  // }
-
   Future<bool> _checkInternetConnectivity() async {
     final connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.mobile ||
@@ -38,7 +33,8 @@ class _BottomNavBaseScreenState extends State<BottomNavBaseScreen> {
       setState(() {
         _selectedScreenIndex = 0;
       });
-    }return connectivityResult == ConnectivityResult.mobile ||
+    }
+    return connectivityResult == ConnectivityResult.mobile ||
         connectivityResult == ConnectivityResult.wifi;
   }
 
@@ -53,7 +49,6 @@ class _BottomNavBaseScreenState extends State<BottomNavBaseScreen> {
         unselectedLabelStyle: const TextStyle(color: Colors.grey),
         showUnselectedLabels: true,
         onTap: (int index) async {
-          
           if (index == 0 && !await _checkInternetConnectivity()) {
             if (mounted) {
               Navigator.push(
@@ -63,10 +58,18 @@ class _BottomNavBaseScreenState extends State<BottomNavBaseScreen> {
                 ),
               );
             }
-
+            return;
+          } else if (index == 1 && await _checkInternetConnectivity()) {
+            if (mounted) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const InternetAvailableScreen(),
+                ),
+              );
+            }
             return;
           }
-
           setState(() {
             _selectedScreenIndex = index;
           });

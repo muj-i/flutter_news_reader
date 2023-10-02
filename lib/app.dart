@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_reader/presentation/ui/screens/bottom_nav_base_page.dart';
+import 'package:flutter_news_reader/view/screens/bottom_nav_base_page.dart';
 
 class FlutterNewsReaderApp extends StatelessWidget {
   const FlutterNewsReaderApp({super.key});

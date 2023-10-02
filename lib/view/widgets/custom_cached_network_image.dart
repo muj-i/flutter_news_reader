@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_reader/presentation/ui/widgets/shimmer_list_item.dart';
+import 'package:flutter_news_reader/view/widgets/shimmer_list_item.dart';
 
 class CustomNetworkImage extends StatelessWidget {
   final String url;

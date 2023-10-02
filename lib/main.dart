@@ -7,7 +7,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Hive.registerAdapter(ArticlesDataAdapter());
-
   await Hive.initFlutter();
 
   runApp(const ProviderScope(child: FlutterNewsReaderApp()));
