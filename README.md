@@ -2,7 +2,9 @@
 
 ## Description 
 
-A simple News app using [News API](https://newsapi.org).
+A simple News app using [News API](https://newsapi.org). 
+
+You can download the latest APK for this project from the [here](https://github.com/muj-i/flutter_news_reader/releases/download/v1.0/News.Read.apk)
 
 ## Responsibilities
 
@@ -28,8 +30,7 @@ A simple News app using [News API](https://newsapi.org).
 
 - **Efficient API Calls with Riverpod:** Riverpod provided a structured and efficient way to manage app state and data. By creating providers for data sources and using `flutter_riverpod`, API calls were made only when the data was needed or when the user explicitly requested it. This approach reduced the number of unnecessary API calls and improved the app's responsiveness.
 
--**Data Caching with Hive:** To overcome the challenges of data caching with `hive_flutter`, a robust caching strategy was implemented. When new data was fetched from the API, it was stored in the Hive box. To ensure data consistency, updates were synchronized with the remote data source. When the app was offline, it retrieved data from the local Hive storage, providing users with access to cached content and minimizing network usage.
-
+- **Data Caching with Hive:** To overcome the challenges of data caching with `hive_flutter`, a robust caching strategy was implemented. When new data was fetched from the API, it was stored in the Hive box. To ensure data consistency, updates were synchronized with the remote data source. When the app was offline, it retrieved data from the local Hive storage, providing users with access to cached content and minimizing network usage.
 
 
 ## News Read UI
