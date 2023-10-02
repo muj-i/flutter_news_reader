@@ -1,4 +1,4 @@
-# News Read
+# News Reader
 
 ## Description 
 
@@ -33,7 +33,7 @@ Wanna use the application? [Download it here](https://github.com/muj-i/flutter_n
 - **Data Caching with Hive:** To overcome the challenges of data caching with `hive_flutter`, a robust caching strategy was implemented. When new data was fetched from the API, it was stored in the Hive box. To ensure data consistency, updates were synchronized with the remote data source. When the app was offline, it retrieved data from the local Hive storage, providing users with access to cached content and minimizing network usage.
 
 
-## News Read UI
+## News Reader UI
 
 ### Online Screen
 <div style="display: flex; flex-wrap: wrap;">
@@ -59,7 +59,7 @@ Ensure Flutter is installed on your machine. For installation instructions, refe
 
 ### Installation
 
-Follow these steps to run the News Read Application:
+Follow these steps to run the News Reader Application:
 
 1. Clone this repository to your local machine:
 
@@ -88,7 +88,7 @@ flutter run --release
 ```
 ## Used Packages
 
-News Read integrates the following packages to enhance functionality:
+News Reader integrates the following packages to enhance functionality:
 - `http: ^1.1.0:` Allows you to perform HTTP requests and interact with APIs.
 - `shimmer: ^3.0.0:` Provides a shimmer effect for your UI to indicate loading or progress.
 - `flutter_iconly: ^1.0.2:` Gives you access to a wide range of Font Awesome icons for stylish visuals in your app.
@@ -102,7 +102,7 @@ News Read integrates the following packages to enhance functionality:
   
 ## Project Directory Structure
 
-The News Read directory structure is organized as follows:
+The News Reader directory structure is organized as follows:
 
 ```
   flutter_news_reader/
