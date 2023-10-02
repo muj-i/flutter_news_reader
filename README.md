@@ -2,7 +2,7 @@
 
 ## Description 
 
-A simple News app using [News API](https://newsapi.org). 
+A simple News app that allows you to browse and read the latest news articles. This app leverages the [News API](https://newsapi.org) for fetching news data, [Riverpod](https://riverpod.dev/) for state management, and [Hive](https://docs.hivedb.dev/#/) for local database storage.
 
 Wanna use the application? [Download it here](https://github.com/muj-i/flutter_news_reader/releases/download/v1.0/News.Read.apk)
 
