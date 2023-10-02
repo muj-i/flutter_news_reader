@@ -84,7 +84,7 @@ flutter pub get
 Connect your device or emulator and run the app using the following command:
 
 ```bash
-flutter run
+flutter run --release
 ```
 ## Used Packages
 
