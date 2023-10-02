@@ -1,23 +1,18 @@
-
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/data/models/news_article_model.dart';
 import 'package:flutter_news_reader/presentation/ui/utils/place_holder.dart';
 import 'package:flutter_news_reader/presentation/ui/widgets/custom_cached_network_image.dart';
 
-class NewsDetailsScreen extends StatefulWidget {
+class NewsDetailsScreen extends StatelessWidget {
   final ArticlesData articlesData;
   const NewsDetailsScreen({super.key, required this.articlesData});
 
   @override
-  State<NewsDetailsScreen> createState() => _NewsDetailsScreenState();
-}
-
-class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.articlesData.source?.name ?? ''),
+        title: Text(articlesData.source?.name ?? ''),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -25,17 +20,32 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // CustomCachedNetworkImage(
-              //     url: (widget.articlesData.urlToImage?.toString() ?? '')
-              //             .isNotEmpty
-              //         ? widget.articlesData.urlToImage.toString()
-              //         : PlaceHolderImage().placeHolderImage),
+              FutureBuilder<bool>(
+                future: _checkInternetConnectivity(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError || !snapshot.data!) {
+                    return Image.asset(
+                      PlaceHolderImage().offlinePlaceHolderImage,
+                      fit: BoxFit.cover,
+                    );
+                  } else {
+                    return CustomNetworkImage(
+                      url:
+                          (articlesData.urlToImage?.toString() ?? '').isNotEmpty
+                              ? articlesData.urlToImage.toString()
+                              : PlaceHolderImage().placeHolderImage,
+                    );
+                  }
+                },
+              ),
               Row(
                 children: [
                   const Spacer(),
                   FittedBox(
                     child: Text(
-                      "Date: ${widget.articlesData.publishedAt ?? ''}",
+                      "Date: ${articlesData.publishedAt ?? ''}",
                       style: const TextStyle(fontSize: 13),
                     ),
                   ),
@@ -45,30 +55,36 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
                 height: 12,
               ),
               Text(
-                widget.articlesData.title ?? '',
+                articlesData.title ?? '',
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(
                 height: 10,
               ),
-              Text(
-                  widget.articlesData.description ?? ''),
+              Text(articlesData.description ?? ''),
               const SizedBox(
                 height: 8,
               ),
-              Text(widget.articlesData.content ?? ''), const SizedBox(
+              Text(articlesData.content ?? ''),
+              const SizedBox(
                 height: 8,
               ),
-               Text(
-                 
-                 "Author: ${widget.articlesData.author ?? ''}",
-                 style: const TextStyle(fontSize: 14,),
-                 
-               ),
+              Text(
+                "Author: ${articlesData.author ?? ''}",
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Future<bool> _checkInternetConnectivity() async {
+    final connectivityResult = await (Connectivity().checkConnectivity());
+    return connectivityResult == ConnectivityResult.mobile ||
+        connectivityResult == ConnectivityResult.wifi;
   }
 }

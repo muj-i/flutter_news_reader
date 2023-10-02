@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/data/models/news_article_model.dart';
-import 'package:flutter_news_reader/data/utils/local_data_storage.dart';
+import 'package:flutter_news_reader/data/utils/breakingnews_local_data_storage.dart';
 import 'package:flutter_news_reader/presentation/ui/widgets/news_list_tile.dart';
 
 class OfflineBreakingNewsScreen extends StatelessWidget {
@@ -9,10 +9,10 @@ class OfflineBreakingNewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ArticlesData>>(
-      future: LocalDataStorage.getArticlesFromDatabase(),
+      future: BreakingNewsLocalDataStorage.getArticlesFromDatabase(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: const CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {

@@ -1,5 +1,3 @@
-
-
 class ArticlesData {
   Source? source;
   String? author;

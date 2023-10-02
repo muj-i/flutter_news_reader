@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/presentation/state_holder/data_provider.dart';
 import 'package:flutter_news_reader/presentation/ui/widgets/news_list_tile.dart';
@@ -14,39 +12,39 @@ class BreakingNewsScreen extends ConsumerWidget {
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () async {
-          log("Refreshing data...");
           ref.refresh(breakingnewsDataProvider).when(
-            data: (_) {
-              log("Refreshed data");
-            },
-            error: (err, s) {
-              // Handle error if needed
-            },
-            loading: () {
-              ProgressIndicator;
-            },
-          );
+                data: (_) {},
+                error: (err, s) {
+                  // need to handle error if needed
+                },
+                loading: () {
+                  ProgressIndicator;
+                },
+              );
         },
         child: newsData.when(
-            data: (newsData) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  height: double.infinity,
-                  width: double.infinity,
-                  child: ListView.builder(
-                    itemCount: newsData.length,
-                    itemBuilder: (context, index) {
-                      return NewsListTile(
-                        articlesData: newsData[index],
-                      );
-                    },
-                  ),
+          data: (newsData) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: double.infinity,
+                width: double.infinity,
+                child: ListView.builder(
+                  itemCount: newsData.length,
+                  itemBuilder: (context, index) {
+                    return NewsListTile(
+                      articlesData: newsData[index],
+                    );
+                  },
                 ),
-              );
-            },
-            error: (err, s) => Text(err.toString()),
-            loading: () => const Center(child: CircularProgressIndicator())),
+              ),
+            );
+          },
+          error: (err, s) => Text(err.toString()),
+          loading: () => const Center(
+            child: CircularProgressIndicator(),
+          ),
+        ),
       ),
     );
   }

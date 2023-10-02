@@ -1,16 +1,10 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/presentation/ui/widgets/shimmer_list_item.dart';
 
-class CustomCachedNetworkImage extends StatelessWidget {
-
-
-
+class CustomNetworkImage extends StatelessWidget {
   final String url;
 
-  const CustomCachedNetworkImage({super.key, required this.url});
+  const CustomNetworkImage({super.key, required this.url});
 
   @override
   Widget build(BuildContext context) {

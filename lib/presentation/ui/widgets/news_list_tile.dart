@@ -1,21 +1,17 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/data/models/news_article_model.dart';
 import 'package:flutter_news_reader/presentation/ui/screens/news_details_screen.dart';
 import 'package:flutter_news_reader/presentation/ui/utils/place_holder.dart';
 import 'package:flutter_news_reader/presentation/ui/widgets/custom_cached_network_image.dart';
 
-class NewsListTile extends StatefulWidget {
+class NewsListTile extends StatelessWidget {
   final ArticlesData articlesData;
   const NewsListTile({
     super.key,
     required this.articlesData,
   });
 
-  @override
-  State<NewsListTile> createState() => _NewsListTileState();
-}
-
-class _NewsListTileState extends State<NewsListTile> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,7 +20,7 @@ class _NewsListTileState extends State<NewsListTile> {
           context,
           MaterialPageRoute(
             builder: (context) => NewsDetailsScreen(
-              articlesData: widget.articlesData,
+              articlesData: articlesData,
             ),
           ),
         );
@@ -38,29 +34,54 @@ class _NewsListTileState extends State<NewsListTile> {
         child: ListTile(
           subtitle: Column(
             children: [
-              // CustomCachedNetworkImage(
-              //     url: (widget.articlesData.urlToImage?.toString() ?? '')
-              //             .isNotEmpty
-              //         ? widget.articlesData.urlToImage.toString()
-              //         : PlaceHolderImage().placeHolderImage),
+              FutureBuilder<bool>(
+                future: _checkInternetConnectivity(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError || !snapshot.data!) {
+                    return Image.asset(
+                      PlaceHolderImage().offlinePlaceHolderImage,
+                      fit: BoxFit.cover,
+                    );
+                  } else {
+                    return CustomNetworkImage(
+                      url:
+                          (articlesData.urlToImage?.toString() ?? '').isNotEmpty
+                              ? articlesData.urlToImage.toString()
+                              : PlaceHolderImage().placeHolderImage,
+                    );
+                  }
+                },
+              ),
               const SizedBox(
                 width: 8,
               ),
               Text(
-                widget.articlesData.title.toString(),
+                articlesData.title.toString(),
                 style: const TextStyle(
-                    fontSize: 18, overflow: TextOverflow.ellipsis),
+                  fontSize: 18,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
               Text(
-                widget.articlesData.description.toString(),
+                articlesData.description.toString(),
                 maxLines: 2,
                 style: const TextStyle(
-                    fontSize: 12, overflow: TextOverflow.ellipsis),
+                  fontSize: 12,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Future<bool> _checkInternetConnectivity() async {
+    final connectivityResult = await (Connectivity().checkConnectivity());
+    return connectivityResult == ConnectivityResult.mobile ||
+        connectivityResult == ConnectivityResult.wifi;
   }
 }

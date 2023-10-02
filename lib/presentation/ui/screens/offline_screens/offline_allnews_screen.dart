@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/data/models/news_article_model.dart';
-import 'package:flutter_news_reader/data/utils/local_data_storage.dart';
+import 'package:flutter_news_reader/data/utils/allnews_local_data_storage.dart';
 import 'package:flutter_news_reader/presentation/ui/widgets/news_list_tile.dart';
 
 class OfflineAllNewsScreen extends StatelessWidget {
