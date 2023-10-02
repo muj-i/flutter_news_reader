@@ -20,6 +20,7 @@ dependencies:
   flutter_launcher_icons: ^0.13.1 #icon generate command: flutter pub run flutter_launcher_icons
   flutter_riverpod: ^2.4.1
   connectivity_plus: ^4.0.2
+  cached_network_image: ^3.3.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
 

@@ -95,6 +95,7 @@ News Reader integrates the following packages to enhance functionality:
 - `flutter_launcher_icons:` ^0.13.1: Simplifies the generation of launcher icons on various platforms, making it easier to customize your app's icons.
 - `flutter_riverpod: ^2.4.1:` A Flutter state management library that is easy to use and provides a robust solution for managing your app's state.
 - `connectivity_plus: ^4.0.2:` Helps you monitor and access network connectivity information in your Flutter app.
+- `cached_network_image: ^3.3.0:` Cached Network Image is a Flutter package that enables efficient caching of network images, improving performance by reducing unnecessary network requests and speeding up image loading.
 - `hive: ^2.2.3:` A lightweight, fast, and efficient NoSQL database for Flutter.
 - `hive_flutter: ^1.1.0`: Integrates Hive with Flutter, allowing you to use Hive seamlessly in your Flutter app.
 - `hive_generator:` ^2.0.1: A code generator for Hive, making it easier to work with Hive in your Flutter project.
@@ -143,7 +144,6 @@ The News Reader directory structure is organized as follows:
   │   │   ├── utils/
   │   │   │   └── place_holder.dart
   │   │   └── widgets/
-  │   │       ├── custom_cached_network_image.dart
   │   │       ├── news_list_tile.dart
   │   │       └── shimmer_list_item.dart
   │   ├── app.dart
