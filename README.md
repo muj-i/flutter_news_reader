@@ -4,7 +4,7 @@
 
 A simple News app using [News API](https://newsapi.org). 
 
-You can download the latest APK for this project from the [here](https://github.com/muj-i/flutter_news_reader/releases/download/v1.0/News.Read.apk)
+Wanna use the application? [Download it here](https://github.com/muj-i/flutter_news_reader/releases/download/v1.0/News.Read.apk)
 
 ## Responsibilities
 
