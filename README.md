@@ -35,6 +35,8 @@ Wanna use the application? [Download it here](https://github.com/muj-i/flutter_n
 
 ## News Reader UI
 
+### [Video demonstration of News Reader](https://www.linkedin.com/posts/muj-i_flutter-newsapp-statemanagement-activity-7114658673020342273-9wUf?utm_source=share&utm_medium=member_desktop)
+
 ### Online Screen
 <div style="display: flex; flex-wrap: wrap;">
     <img src="https://github.com/muj-i/flutter_news_reader/blob/main/screenshots/ss1.png" width="250" />
