@@ -67,7 +67,10 @@ class IconWithCollapsingTextState extends State<IconWithCollapsingText> {
             ),
             child: Row(
               children: [
-                Icon(widget.alternativeIconData, color: Colors.green,),
+                Icon(
+                  widget.alternativeIconData,
+                  size: 20,
+                ),
               ],
             ),
           ),
@@ -82,7 +85,10 @@ class IconWithCollapsingTextState extends State<IconWithCollapsingText> {
             ),
             child: Row(
               children: [
-                Icon(widget.iconData,  color: Colors.green,),
+                Icon(
+                  widget.iconData,
+                  size: 20,
+                ),
                 const SizedBox(width: 8.0),
                 AnimatedOpacity(
                   duration: widget.toggleDuration,

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/data/models/news_article_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsDetailsScreen extends StatelessWidget {
   final ArticlesData articlesData;
@@ -64,7 +65,34 @@ class NewsDetailsScreen extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 14,
                 ),
+
               ),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: .1,
+                          backgroundColor: Colors.white54,
+                          padding: const EdgeInsets.all(12),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                          )
+                        ),
+                          onPressed: () async {
+                            final Uri url = Uri.parse(articlesData.url.toString());
+                            if (!await launchUrl(url)) {
+                              throw Exception('Could not launch $url');
+                            }
+                          }, child: const Text('Read more...',style: TextStyle(
+                        color: Colors.black87,
+                      ),)
+                      ),
+                    ),
+                  ),
+                )
             ],
           ),
         ),

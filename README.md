@@ -14,9 +14,9 @@ Wanna use the application? [Download it here](https://github.com/muj-i/flutter_n
 
 ## Design Decisions:
 
-- **Bottom Navigation:** The app utilizes a bottom navigation bar with two tabs - "Home" and "Offline." It allows users to switch between online and offline content easily.
+<!-- - **Bottom Navigation:** The app utilizes a bottom navigation bar with two tabs - "Home" and "Offline." It allows users to switch between online and offline content easily. -->
 
-- **AppBar TabBar:** The "Home" & the "Offline" screnns features an AppBar with a TabBar that contains two tabs - "Breaking News" and "All News." This design decision was made to provide users with quick access to both categories of news articles.
+- **AppBar TabBar:** The AppBar with a TabBar that contains two tabs - "Breaking News" and "All News." This design decision was made to provide users with quick access to both categories of news articles.
 
 - **Connectivity Check:** The app checks for internet connectivity using the connectivity_plus package. If the user is online, they can access the "Breaking News" and "All News" tabs. If offline, they can access the "Offline" screen & they can access the cached "Breaking News" and "All News".
 
@@ -34,6 +34,8 @@ Wanna use the application? [Download it here](https://github.com/muj-i/flutter_n
 
 
 ## News Reader UI
+
+<!-- ### [Video demonstration of News Reader](https://www.linkedin.com/posts/muj-i_flutter-newsapp-statemanagement-activity-7114658673020342273-9wUf?utm_source=share&utm_medium=member_desktop) -->
 
 ### [Video demonstration of News Reader](https://www.linkedin.com/posts/muj-i_flutter-newsapp-statemanagement-activity-7114658673020342273-9wUf?utm_source=share&utm_medium=member_desktop)
 
@@ -98,6 +100,7 @@ News Reader integrates the following packages to enhance functionality:
 - `flutter_riverpod: ^2.4.1:` A Flutter state management library that is easy to use and provides a robust solution for managing your app's state.
 - `connectivity_plus: ^4.0.2:` Helps you monitor and access network connectivity information in your Flutter app.
 - `cached_network_image: ^3.3.0:` Cached Network Image is a Flutter package that enables efficient caching of network images, improving performance by reducing unnecessary network requests and speeding up image loading.
+- `url_launcher: ^6.1.10:` Flutter package for launching external web URLs, emails, phone calls, and other deep links from your app.
 - `hive: ^2.2.3:` A lightweight, fast, and efficient NoSQL database for Flutter.
 - `hive_flutter: ^1.1.0`: Integrates Hive with Flutter, allowing you to use Hive seamlessly in your Flutter app.
 - `hive_generator:` ^2.0.1: A code generator for Hive, making it easier to work with Hive in your Flutter project.
