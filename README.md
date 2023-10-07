@@ -93,7 +93,7 @@ flutter run --release
 News Reader integrates the following packages to enhance functionality:
 - `http: ^1.1.0:` Allows you to perform HTTP requests and interact with APIs.
 - `shimmer: ^3.0.0:` Provides a shimmer effect for your UI to indicate loading or progress.
-- `flutter_iconly: ^1.0.2:` Gives you access to a wide range of Font Awesome icons for stylish visuals in your app.
+- `font_awesome_flutter: ^10.5.0:` Gives you access to a wide range of Font Awesome icons for stylish visuals in your app.
 - `flutter_launcher_icons:` ^0.13.1: Simplifies the generation of launcher icons on various platforms, making it easier to customize your app's icons.
 - `flutter_riverpod: ^2.4.1:` A Flutter state management library that is easy to use and provides a robust solution for managing your app's state.
 - `connectivity_plus: ^4.0.2:` Helps you monitor and access network connectivity information in your Flutter app.
@@ -110,10 +110,6 @@ The News Reader directory structure is organized as follows:
 ```
   flutter_news_reader/
   ├─ assets/
-  │  ├─ images/
-  │  │  ├─ internet_available.png
-  │  │  ├─ no_internet_image.png
-  │  │  ├─ offline_placeholder_image.png
   │  ├─ logo/
   │  │  ├─ logo.png
   ├──lib/
@@ -139,13 +135,13 @@ The News Reader directory structure is organized as follows:
   │   │   │   │   ├── allnews_screen.dart
   │   │   │   │   ├── appbar_tabbar_screen.dart
   │   │   │   │   └── breakingnews_screen.dart
-  │   │   │   ├── bottom_nav_base_page.dart
-  │   │   │   ├── internet_available_screen.dart
+  │   │   │   ├── conectivity_checker_screen.dart
   │   │   │   ├── news_details_screen.dart
-  │   │   │   └── no_internet_screen.dart
+  │   │   │   └── splash_screen.dart
   │   │   ├── utils/
   │   │   │   └── place_holder.dart
   │   │   └── widgets/
+  │   │       ├── icon_with_collapsing_text.dart
   │   │       ├── news_list_tile.dart
   │   │       └── shimmer_list_item.dart
   │   ├── app.dart
