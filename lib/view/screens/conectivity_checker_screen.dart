@@ -6,14 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/view/screens/offline_screens/offline_appbar_tabbar_screen.dart';
 import 'package:flutter_news_reader/view/screens/online_screens/appbar_tabbar_screen.dart';
 
-class ConnectivityChecker extends StatefulWidget {
-  const ConnectivityChecker({Key? key}) : super(key: key);
+class NetworkConnectivityChecker extends StatefulWidget {
+  const NetworkConnectivityChecker({Key? key}) : super(key: key);
 
   @override
-  ConnectivityCheckerState createState() => ConnectivityCheckerState();
+  NetworkConnectivityCheckerState createState() =>
+      NetworkConnectivityCheckerState();
 }
 
-class ConnectivityCheckerState extends State<ConnectivityChecker> {
+class NetworkConnectivityCheckerState
+    extends State<NetworkConnectivityChecker> {
   late ConnectivityResult result;
   late StreamSubscription<ConnectivityResult> subscription;
   var isConnected = false;
@@ -27,7 +29,6 @@ class ConnectivityCheckerState extends State<ConnectivityChecker> {
         setState(() {});
       } else {
         isConnected = false;
-        setState(() {});
       }
     } catch (error) {
       log('Error in checkInternet: $error');

@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
-            builder: (context) => const ConnectivityChecker(),
+            builder: (context) => const NetworkConnectivityChecker(),
           ),
           (route) => false);
     });
