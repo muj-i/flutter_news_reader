@@ -37,6 +37,7 @@ Wanna use the application? [Download it here](https://github.com/muj-i/flutter_n
 
 <!-- ### [Video demonstration of News Reader](https://www.linkedin.com/posts/muj-i_flutter-newsapp-statemanagement-activity-7114658673020342273-9wUf?utm_source=share&utm_medium=member_desktop) -->
 <iframe width="560" height="315" src="https://youtu.be/RU99I7mKFFU" frameborder="0" allowfullscreen></iframe>
+### [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/RU99I7mKFFU/0.jpg)](https://www.youtube.com/watch?v=RU99I7mKFFU)
 
 ### [Video demonstration of News Reader](https://youtu.be/RU99I7mKFFU)
 
