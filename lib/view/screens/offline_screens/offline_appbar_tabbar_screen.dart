@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/view/screens/offline_screens/offline_allnews_screen.dart';
 import 'package:flutter_news_reader/view/screens/offline_screens/offline_breakingnews_screen.dart';
+import 'package:flutter_news_reader/view/widgets/icon_with_collapsing_text.dart';
 
 class OfflineAppBarTabBArScreen extends StatefulWidget {
   const OfflineAppBarTabBArScreen({Key? key}) : super(key: key);
@@ -17,15 +18,23 @@ class _OfflineAppBarTabBArScreenState extends State<OfflineAppBarTabBArScreen> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Flutter News Reader'),
+          actions: [
+            IconWithCollapsingText(
+              iconData: Icons.signal_cellular_off_rounded,
+              text: 'Offline',
+              alternativeIconData: Icons.signal_cellular_off_rounded,
+              containerColor: Colors.red.withOpacity(.3),
+            )
+          ],
+          centerTitle: false,
+          title: const Text('News Reader'),
           bottom: const TabBar(
             tabs: [
               Tab(
-                text: "Cached Breaking News",
+                text: "Breaking News",
               ),
               Tab(
-                text: 'Cached All News',
+                text: 'All News',
               )
             ],
           ),

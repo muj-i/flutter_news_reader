@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_reader/view/screens/bottom_nav_base_page.dart';
+import 'package:flutter_news_reader/view/screens/splash_screen.dart';
 
 class FlutterNewsReaderApp extends StatelessWidget {
   const FlutterNewsReaderApp({super.key});
@@ -11,7 +11,7 @@ class FlutterNewsReaderApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.redAccent),
         useMaterial3: true,
       ),
-      home: const BottomNavBaseScreen(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_reader/view/screens/online_screens/allnews_screen.dart';
 import 'package:flutter_news_reader/view/screens/online_screens/breakingnews_screen.dart';
+import 'package:flutter_news_reader/view/widgets/icon_with_collapsing_text.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AppBarTabBArScreen extends StatefulWidget {
   const AppBarTabBArScreen({Key? key}) : super(key: key);
@@ -16,8 +18,16 @@ class _AppBarTabBArScreenState extends State<AppBarTabBArScreen> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Flutter News Reader'),
+          actions: [
+            IconWithCollapsingText(
+              iconData: FontAwesomeIcons.earthAsia,
+              text: 'Online',
+              alternativeIconData: FontAwesomeIcons.earthAsia,
+              containerColor: Colors.green.withOpacity(.3),
+            )
+          ],
+          centerTitle: false,
+          title: const Text('News Reader'),
           bottom: const TabBar(
             tabs: [
               Tab(
