@@ -35,9 +35,12 @@ Wanna use the application? [Download it here](https://github.com/muj-i/flutter_n
 
 ## News Reader UI
 
-<!-- ### [Video demonstration of News Reader](https://www.linkedin.com/posts/muj-i_flutter-newsapp-statemanagement-activity-7114658673020342273-9wUf?utm_source=share&utm_medium=member_desktop) -->
+<!-- ### [Video demonstration of News Reader](https://www.linkedin.com/posts/muj-i_flutter-newsapp-statemanagement-activity-7114658673020342273-9wUf?utm_source=share&utm_medium=member_desktop)
 
-### [![news](https://img.youtube.com/vi/RU99I7mKFFU)](https://www.youtube.com/watch?v=RU99I7mKFFU)
+### [![news](https://img.youtube.com/vi/RU99I7mKFFU)](https://www.youtube.com/watch?v=RU99I7mKFFU) -->
+
+[![Video](https://img.youtube.com/vi/RU99I7mKFFU/hqdefault.jpg)](https://www.youtube.com/watch?v=RU99I7mKFFU)
+
 
 ### [Video demonstration of News Reader](https://youtu.be/RU99I7mKFFU)
 
